@@ -1,0 +1,52 @@
+#include <curses.h>
+#include "funz_utili.h"
+
+using namespace std;
+
+
+int main(int argc, char ** argv){
+
+    initscr();
+
+    cbreak();
+    curs_set(0);
+    keypad(stdscr, true);
+
+    tetramino test = T_shape();
+    test.move(0, 60);
+
+    bool loop = true;
+    int counter = 0;
+    int input;
+    int pos_x;
+    int pos_y;
+
+    int num_sprint = 10;
+    int temp_caduta = 250;
+
+
+    while(loop){
+
+        pos_x = test.get_x();
+        pos_y = test.get_y();
+
+        timeout(temp_caduta);
+        input = getch();
+
+        if(input == -1){counter += num_sprint;}
+        else{napms( ( (2 * temp_caduta)/num_sprint ) ); counter += 1;}
+
+        if(input == KEY_RIGHT){pos_x += 1;}
+        if(input == KEY_LEFT){pos_x -= 1;}
+        if(input == KEY_UP){test.ruota_90_dx();}
+        if(input == KEY_F(1)){loop = false;}
+
+
+        if(counter >= num_sprint){pos_y += 1; counter = 0;}
+        test.move(pos_y, pos_x);
+    }
+
+    endwin();
+
+
+}

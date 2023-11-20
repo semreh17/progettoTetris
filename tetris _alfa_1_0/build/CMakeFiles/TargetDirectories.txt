@@ -1,0 +1,3 @@
+C:/Users/federico menegazzo/Desktop/Cpp_projects/tetris/build/CMakeFiles/tetris.dir
+C:/Users/federico menegazzo/Desktop/Cpp_projects/tetris/build/CMakeFiles/edit_cache.dir
+C:/Users/federico menegazzo/Desktop/Cpp_projects/tetris/build/CMakeFiles/rebuild_cache.dir
